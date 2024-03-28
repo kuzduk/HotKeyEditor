@@ -1,13 +1,13 @@
 unit kuHotKeys;
 {
-Редактор горячих клавиш Delphi
-Отлавливает не только Ctrl, Shift, Alt но и Win
-Автор Горкун Григорий https://kuzduk.ru/delphi/kulibrary
+Р РµРґР°РєС‚РѕСЂ РіРѕСЂСЏС‡РёС… РєР»Р°РІРёС€ Delphi
+РћС‚Р»Р°РІР»РёРІР°РµС‚ РЅРµ С‚РѕР»СЊРєРѕ Ctrl, Shift, Alt РЅРѕ Рё Win
+РђРІС‚РѕСЂ Р“РѕСЂРєСѓРЅ Р“СЂРёРіРѕСЂРёР№ https://kuzduk.ru/delphi/kulibrary
 
-НУЖНО СДЕЛАТЬ:
-Запретить в ComboBox все HK: Up Dn Left Right PgUp PgDown чтоб при OnKeyDown они не меняли строку а делали только KeyToStr
-Запретить потрею фокуса по Tab в ComboBox и Edit1
-Перехватить все глобальные клавиши системы чтоб они не выпонгялись, а только  отображались редакторе, например Win чтоб не включалось меню пуск, или например Win + E
+РќРЈР–РќРћ РЎР”Р•Р›РђРўР¬:
+Р—Р°РїСЂРµС‚РёС‚СЊ РІ ComboBox РІСЃРµ HK: Up Dn Left Right PgUp PgDown С‡С‚РѕР± РїСЂРё OnKeyDown РѕРЅРё РЅРµ РјРµРЅСЏР»Рё СЃС‚СЂРѕРєСѓ Р° РґРµР»Р°Р»Рё С‚РѕР»СЊРєРѕ KeyToStr
+Р—Р°РїСЂРµС‚РёС‚СЊ РїРѕС‚СЂРµСЋ С„РѕРєСѓСЃР° РїРѕ Tab РІ ComboBox Рё Edit1
+РџРµСЂРµС…РІР°С‚РёС‚СЊ РІСЃРµ РіР»РѕР±Р°Р»СЊРЅС‹Рµ РєР»Р°РІРёС€Рё СЃРёСЃС‚РµРјС‹ С‡С‚РѕР± РѕРЅРё РЅРµ РІС‹РїРѕРЅРіСЏР»РёСЃСЊ, Р° С‚РѕР»СЊРєРѕ  РѕС‚РѕР±СЂР°Р¶Р°Р»РёСЃСЊ СЂРµРґР°РєС‚РѕСЂРµ, РЅР°РїСЂРёРјРµСЂ Win С‡С‚РѕР± РЅРµ РІРєР»СЋС‡Р°Р»РѕСЃСЊ РјРµРЅСЋ РїСѓСЃРє, РёР»Рё РЅР°РїСЂРёРјРµСЂ Win + E
 }
 interface
 
@@ -103,7 +103,7 @@ var
 begin
 
 //if (Key = 9) and (ActiveControl = Self) then begin
-//  //не работает!
+//  //РЅРµ СЂР°Р±РѕС‚Р°РµС‚!
 //  Perform(CM_DialogKey, VK_TAB, 0);
 //  ActiveControl := Self;
 //  Self.SetFocus;
@@ -176,8 +176,8 @@ s := KeyToStr(Key);
 
 ComboBox1.ItemIndex := ComboBox1.Items.IndexOf(s);
 
-//if Key = VK_TAB then ActiveControl := ComboBox1; //не работает
-Key := 0; //чтобы не обрабатывать клавиши Up, Down, Left, Right, Home, End, PgUp, PgDown,
+//if Key = VK_TAB then ActiveControl := ComboBox1; //РЅРµ СЂР°Р±РѕС‚Р°РµС‚
+Key := 0; //С‡С‚РѕР±С‹ РЅРµ РѕР±СЂР°Р±Р°С‚С‹РІР°С‚СЊ РєР»Р°РІРёС€Рё Up, Down, Left, Right, Home, End, PgUp, PgDown,
 end;
 
 
@@ -388,9 +388,9 @@ end;
 
 {$REGION '  Uni  Key ~ Mod ~ Str  '}
 {
-Key - клавиша
-Mod - клавиша модификатор Ctrl, Shift, Alt, Win
-ShiftState - набор модификаторов ssCtrl, ssShift, ssAlt. БЕЗ клавиши Win
+Key - РєР»Р°РІРёС€Р°
+Mod - РєР»Р°РІРёС€Р° РјРѕРґРёС„РёРєР°С‚РѕСЂ Ctrl, Shift, Alt, Win
+ShiftState - РЅР°Р±РѕСЂ РјРѕРґРёС„РёРєР°С‚РѕСЂРѕРІ ssCtrl, ssShift, ssAlt. Р‘Р•Р— РєР»Р°РІРёС€Рё Win
 
 ShortCutToText - uses Vcl.Menus
 GetKeyNameText - uese Winapi.Windows
@@ -429,7 +429,7 @@ end;
 
 //------------------------------------------------------------------------------ Key To Str
 function KeyToStr(Key: word): string;
-//спасибо n0wheremany
+//СЃРїР°СЃРёР±Рѕ n0wheremany
 var sKey: String;
 begin
 
@@ -558,7 +558,7 @@ end;
 //------------------------------------------------------------------------------ Key Downly
 function KeyDownly(Key: integer): Boolean;
 {
-вжата ли клавиша?
+РІР¶Р°С‚Р° Р»Рё РєР»Р°РІРёС€Р°?
 Ctrl  = VK_Control
 Shift = VK_Shift
 Alt   = VK_Menu
@@ -581,7 +581,7 @@ end;
 
 //------------------------------------------------------------------------------ Ctrl
 function CtrlDown: Boolean;
-//вжата ли клавиша Ctrl?
+//РІР¶Р°С‚Р° Р»Рё РєР»Р°РІРёС€Р° Ctrl?
 begin
 
 Result := KeyDownly(VK_CONTROL);
@@ -592,7 +592,7 @@ end;
 
 //------------------------------------------------------------------------------ Shift
 function ShiftDown: Boolean;
-//вжата ли клавиша Shift?
+//РІР¶Р°С‚Р° Р»Рё РєР»Р°РІРёС€Р° Shift?
 begin
 
 Result := KeyDownly(VK_SHIFT);
@@ -603,7 +603,7 @@ end;
 
 //------------------------------------------------------------------------------ Alt
 function AltDown: Boolean;
-//вжата ли клавиша Alt?
+//РІР¶Р°С‚Р° Р»Рё РєР»Р°РІРёС€Р° Alt?
 begin
 
 Result := KeyDownly(VK_MENU);
@@ -614,7 +614,7 @@ end;
 
 //------------------------------------------------------------------------------ Win
 function WinDown: Boolean;
-//вжата ли клавиша Alt?
+//РІР¶Р°С‚Р° Р»Рё РєР»Р°РІРёС€Р° Alt?
 begin
 
 Result := KeyDownly(VK_LWIN) or KeyDownly(VK_RWIN);
@@ -629,7 +629,7 @@ procedure KeyDownEmulate(Component: TComponent;  Key: Word; Shift: TShiftState =
 var k: word;
 begin
 
-//эмулируем нажатие клавиши чтоб всё сработало точно также как и в kuShellListView.pas
+//СЌРјСѓР»РёСЂСѓРµРј РЅР°Р¶Р°С‚РёРµ РєР»Р°РІРёС€Рё С‡С‚РѕР± РІСЃС‘ СЃСЂР°Р±РѕС‚Р°Р»Рѕ С‚РѕС‡РЅРѕ С‚Р°РєР¶Рµ РєР°Рє Рё РІ kuShellListView.pas
 k := Key;
 //LVS.KeyDown(k, []);
 
